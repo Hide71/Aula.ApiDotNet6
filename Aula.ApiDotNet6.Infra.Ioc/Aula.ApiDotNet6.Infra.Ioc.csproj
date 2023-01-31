@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Aula.ApiDotNet6.Application\Aula.ApiDotNet6.Application.csproj" />
+    <ProjectReference Include="..\Aula.ApiDotnet6.Domain\Aula.ApiDotnet6.Domain.csproj" />
+    <ProjectReference Include="..\Aula.ApiDotnet6.Infra.Data\Aula.ApiDotnet6.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>
