@@ -13,6 +13,7 @@ namespace Aula.ApiDotnet6.Domain.Entities
         public string Name { get; private set; }
         public string CodErp { get; private set; }
         public decimal Price { get; private set; }
+        public ICollection<Purchase> Purchase { get; set; }
 
         public Product(string name, string codErp, decimal price)
         {

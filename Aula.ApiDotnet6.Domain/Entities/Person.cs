@@ -13,6 +13,7 @@ namespace Aula.ApiDotnet6.Domain.Entities
         public string Name { get; private set; }
         public string Document { get; private set; }
         public string Phone { get; private set; }
+        public ICollection<Purchase> Purchase { get; set; }
 
         public Person(string name, string document, string phone )
         {
