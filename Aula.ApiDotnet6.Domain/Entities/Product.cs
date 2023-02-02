@@ -24,7 +24,7 @@ namespace Aula.ApiDotnet6.Domain.Entities
         public Product(int id, string name, string codErp, decimal price)
         {
             DomainValidationException.When(Id < 0, "ID deve ser informado");
-            Id = Id;
+            Id = id;
             Validation(name, codErp, price);
         }
 
