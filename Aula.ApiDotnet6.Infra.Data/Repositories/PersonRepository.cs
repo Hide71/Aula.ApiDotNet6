@@ -1,5 +1,6 @@
 ﻿using Aula.ApiDotnet6.Domain.Entities;
 using Aula.ApiDotnet6.Domain.Repositories;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +11,38 @@ namespace Aula.ApiDotnet6.Infra.Data.Repositories
 {
     public class PersonRepository : IPersonRepository
     {
-        public Task<Person> CreateAsync(Person person)
+        readonly ApplicationDbContext _db;
+        public PersonRepository(ApplicationDbContext db)
         {
-            throw new NotImplementedException();
+            _db = db;
+        }
+        public async Task<Person> CreateAsync(Person person)
+        {
+            _db.Add(person);
+            await _db.SaveChangesAsync();
+            return person;
         }
 
-        public Task DeleteAsync(Person person)
+        public async Task DeleteAsync(Person person)
         {
-            throw new NotImplementedException();
+            _db.Remove(person);
+            await _db.SaveChangesAsync();
         }
 
-        public Task EditAsync(Person person)
+        public async Task EditAsync(Person person)
         {
-            throw new NotImplementedException();
+            _db.Update(person);
+            await _db.SaveChangesAsync();
         }
 
-        public Task<Person> GetByIdAsync(int id)
+        public async Task<Person> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _db.People.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public Task<ICollection<Person>> GetPeopleAsync()
+        public async Task<ICollection<Person>> GetPeopleAsync()
         {
-            throw new NotImplementedException();
+            return await _db.People.ToListAsync();
         }
     }
 }

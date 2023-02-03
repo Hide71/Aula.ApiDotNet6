@@ -15,6 +15,9 @@ namespace Aula.ApiDotnet6.Infra.Data
 
         }
         public DbSet<Person> People { get; set; }
+        public DbSet<Product> Product { get; set; }
+        public DbSet<Purchase> Purchase { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
