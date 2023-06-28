@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Aula.ApiDotnet6.Domain.Validations
+﻿namespace Aula.ApiDotnet6.Domain.Validations
 {
-    public  class DomainValidationException:Exception
+    public class DomainValidationException : Exception
     {
         public DomainValidationException(string error) : base(error)
         {

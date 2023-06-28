@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Aula.ApiDotnet6.Domain.Validations;
+﻿using Aula.ApiDotnet6.Domain.Validations;
 
 namespace Aula.ApiDotnet6.Domain.Entities
 {
@@ -13,11 +8,12 @@ namespace Aula.ApiDotnet6.Domain.Entities
         public string Name { get; private set; }
         public string CodErp { get; private set; }
         public decimal Price { get; private set; }
-        public ICollection<Purchase> Purchase { get; set; }
+        public ICollection<Purchase> Purchases { get; set; }
 
         public Product(string name, string codErp, decimal price)
         {
             Validation(name, codErp, price);
+            Purchases = new List<Purchase>();
 
         }
 
@@ -26,6 +22,7 @@ namespace Aula.ApiDotnet6.Domain.Entities
             DomainValidationException.When(Id < 0, "ID deve ser informado");
             Id = id;
             Validation(name, codErp, price);
+            Purchases = new List<Purchase>();
         }
 
         private void Validation(string name, string codErp, decimal price)
@@ -36,7 +33,7 @@ namespace Aula.ApiDotnet6.Domain.Entities
             Name = name;
             CodErp = codErp;
             Price = price;
-   
+
         }
     }
 }

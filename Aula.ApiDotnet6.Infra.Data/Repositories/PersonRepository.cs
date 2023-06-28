@@ -1,17 +1,13 @@
 ﻿using Aula.ApiDotnet6.Domain.Entities;
 using Aula.ApiDotnet6.Domain.Repositories;
+using Aula.ApiDotnet6.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aula.ApiDotnet6.Infra.Data.Repositories
 {
     public class PersonRepository : IPersonRepository
     {
-        readonly ApplicationDbContext _db;
+        private readonly ApplicationDbContext _db;
         public PersonRepository(ApplicationDbContext db)
         {
             _db = db;

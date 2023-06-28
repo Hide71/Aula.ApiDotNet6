@@ -1,13 +1,8 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aula.ApiDotNet6.Application.DTOs.Validations
 {
-    public class PersonDTOValidator: AbstractValidator<PersonDTO>
+    public class PersonDTOValidator : AbstractValidator<PersonDTO>
     {
         public PersonDTOValidator()
         {

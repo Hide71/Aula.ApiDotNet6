@@ -1,15 +1,11 @@
 ﻿using Aula.ApiDotnet6.Domain.Entities;
 using Aula.ApiDotnet6.Domain.Repositories;
+using Aula.ApiDotnet6.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aula.ApiDotnet6.Infra.Data.Repositories
 {
-        class ProductRepository : IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly ApplicationDbContext _db;
         public ProductRepository(ApplicationDbContext db)

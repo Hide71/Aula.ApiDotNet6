@@ -1,9 +1,4 @@
 ﻿using Aula.ApiDotnet6.Domain.Validations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aula.ApiDotnet6.Domain.Entities
 {
@@ -13,11 +8,12 @@ namespace Aula.ApiDotnet6.Domain.Entities
         public string Name { get; private set; }
         public string Document { get; private set; }
         public string Phone { get; private set; }
-        public ICollection<Purchase> Purchase { get; set; }
+        public ICollection<Purchase> Purchases { get; set; }
 
-        public Person(string name, string document, string phone )
+        public Person(string name, string document, string phone)
         {
             Validation(name, document, phone);
+            Purchases = new List<Purchase>();
         }
 
         public Person(int id, string name, string document, string phone)
@@ -25,6 +21,7 @@ namespace Aula.ApiDotnet6.Domain.Entities
             DomainValidationException.When(id < 0, "ID inválido");
             Id = id;
             Validation(name, document, phone);
+            Purchases = new List<Purchase>();
         }
         private void Validation(string name, string document, string phone)
         {
