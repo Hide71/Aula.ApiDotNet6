@@ -19,7 +19,7 @@ namespace Aula.ApiDotNet6.Application.Services
         public async Task<ResultService<PersonDTO>> CreateAsync(PersonDTO personDTO)
         {
             if (personDTO == null)
-                return  ResultService.Fail<PersonDTO>("Objeto deve ser informado");
+                return ResultService.Fail<PersonDTO>("Objeto deve ser informado");
 
             var result = new PersonDTOValidator().Validate(personDTO);
             if (!result.IsValid)
@@ -28,7 +28,7 @@ namespace Aula.ApiDotNet6.Application.Services
 
             }
 
-            var person = _mapper.Map <Person> (personDTO);
+            var person = _mapper.Map<Person>(personDTO);
             var data = await _personRepository.CreateAsync(person);
             return ResultService.Ok<PersonDTO>(_mapper.Map<PersonDTO>(data));
 

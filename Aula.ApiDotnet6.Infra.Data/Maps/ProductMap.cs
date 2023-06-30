@@ -8,13 +8,13 @@ namespace Aula.ApiDotnet6.Infra.Data.Maps
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder.ToTable("Produto");
+            builder.ToTable("produto");
             builder.HasKey(x => x.Id);
 
-            builder.Property(x => x.Id).HasColumnName("Idproduto").UseIdentityColumn();
-            builder.Property(x => x.CodErp).HasColumnName("Coderp").UseIdentityColumn();
-            builder.Property(x => x.Name).HasColumnName("Nome");
-            builder.Property(x => x.Price).HasColumnName("Preco");
+            builder.Property(x => x.Id).HasColumnName("idproduto").UseIdentityColumn();
+            builder.Property(x => x.CodErp).HasColumnName("coderp").UseIdentityColumn();
+            builder.Property(x => x.Name).HasColumnName("nome");
+            builder.Property(x => x.Price).HasColumnName("preco");
 
             builder.HasMany(x => x.Purchases).WithOne(c => c.Product).HasForeignKey(x => x.ProductId);
         }

@@ -1,12 +1,12 @@
 ﻿using Aula.ApiDotnet6.Domain.Repositories;
+using Aula.ApiDotnet6.Infra.Data.Context;
 using Aula.ApiDotnet6.Infra.Data.Repositories;
+using Aula.ApiDotNet6.Application.Mappings;
+using Aula.ApiDotNet6.Application.Services;
+using Aula.ApiDotNet6.Application.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Aula.ApiDotNet6.Application.Mappings;
-using Aula.ApiDotnet6.Infra.Data.Context;
-using Aula.ApiDotNet6.Application.Services;
-using Aula.ApiDotNet6.Application.Services.Interfaces;
 
 namespace Aula.ApiDotNet6.Infra.Ioc
 {
@@ -15,7 +15,7 @@ namespace Aula.ApiDotNet6.Infra.Ioc
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(
-                configuration.GetConnectionString("")));
+                configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IPersonRepository, PersonRepository>();
             return services;
         }

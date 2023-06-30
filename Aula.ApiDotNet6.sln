@@ -5,13 +5,13 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aula.ApiDotnet6.Domain", "Aula.ApiDotnet6.Domain\Aula.ApiDotnet6.Domain.csproj", "{7C7FBE30-E7A9-4BAB-A34A-FD38F712E7ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aula.ApiDotnet6.Infra.Data", "Aula.ApiDotnet6.Infra.Data\Aula.ApiDotnet6.Infra.Data.csproj", "{5C4B0715-DB6C-4C11-A3AE-3A29C45ADF10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aula.ApiDotnet6.Infra.Data", "Aula.ApiDotnet6.Infra.Data\Aula.ApiDotnet6.Infra.Data.csproj", "{5C4B0715-DB6C-4C11-A3AE-3A29C45ADF10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aula.ApiDotNet6.Application", "Aula.ApiDotNet6.Application\Aula.ApiDotNet6.Application.csproj", "{7644DB23-E538-4881-9151-3E874AE62EB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aula.ApiDotNet6.Application", "Aula.ApiDotNet6.Application\Aula.ApiDotNet6.Application.csproj", "{7644DB23-E538-4881-9151-3E874AE62EB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aula.ApiDotNet6.Infra.Ioc", "Aula.ApiDotNet6.Infra.Ioc\Aula.ApiDotNet6.Infra.Ioc.csproj", "{5AD1A15D-CDA8-42D4-A191-37BBB6165358}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aula.ApiDotNet6.Infra.Ioc", "Aula.ApiDotNet6.Infra.Ioc\Aula.ApiDotNet6.Infra.Ioc.csproj", "{5AD1A15D-CDA8-42D4-A191-37BBB6165358}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aula.ApiDotNet6.Api", "Aula.ApiDotNet6.Api\Aula.ApiDotNet6.Api.csproj", "{A3E11E2A-1819-408A-BA1B-5C3F49A09DB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aula.ApiDotNet6.Api", "Aula.ApiDotNet6.Api\Aula.ApiDotNet6.Api.csproj", "{A3E11E2A-1819-408A-BA1B-5C3F49A09DB7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
