@@ -33,7 +33,9 @@ namespace Aula.ApiDotnet6.Infra.Data.Repositories
 
         public async Task<Person> GetByIdAsync(int id)
         {
+#pragma warning disable CS8603 // Possível retorno de referência nula.
             return await _db.People.FirstOrDefaultAsync(x => x.Id == id);
+#pragma warning restore CS8603 // Possível retorno de referência nula.
         }
 
         public async Task<ICollection<Person>> GetPeopleAsync()
