@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace Aula.ApiDotNet6.Application.Services.Interfaces
 {
-    internal interface IProductService
+    public interface IProductService
     {
         Task<ResultService<ProductDTO>> CreateAsync(ProductDTO productDTO);
+        Task<ResultService<ProductDTO>> GetByIdAsync(int id);
+        Task<ResultService<ICollection<ProductDTO>>> GetAsync();
+        Task<ResultService> UpdateAsync(ProductDTO productDTO);
+        Task<ResultService> RemoveAsync(int id);
     }
 }

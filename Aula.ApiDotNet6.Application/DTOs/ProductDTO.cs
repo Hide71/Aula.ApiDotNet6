@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Aula.ApiDotNet6.Application.DTOs
 {
-    internal class ProductDTO
+    public class ProductDTO
     {
         public   int Id { get; set; }
         public   string Name { get; set; }

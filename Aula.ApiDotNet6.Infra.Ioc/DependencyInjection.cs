@@ -17,12 +17,14 @@ namespace Aula.ApiDotNet6.Infra.Ioc
             services.AddDbContext<ApplicationDbContext>(options => options.UseNpgsql(
                 configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
             return services;
         }
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAutoMapper(typeof(DomainToDtoMapping));
             services.AddScoped<IPersonService, PersonService>();
+            services.AddScoped<IProductService, ProductService>();
             return services;
         }
 
