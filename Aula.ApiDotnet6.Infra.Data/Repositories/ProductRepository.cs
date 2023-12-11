@@ -31,16 +31,21 @@ namespace Aula.ApiDotnet6.Infra.Data.Repositories
             await _db.SaveChangesAsync();
         }
 
+        public async Task<int> GetByCodErpAsync(string codErp)
+        {
+            return (await _db.Products.FirstOrDefaultAsync(x => x.CodErp == codErp))?.Id ?? 0;
+        }
+
         public async Task<Product> GetByIdAsync(int id)
         {
 #pragma warning disable CS8603 // Possível retorno de referência nula.
-            return await _db.Product.FirstOrDefaultAsync(x => x.Id == id);
+            return await _db.Products.FirstOrDefaultAsync(x => x.Id == id);
 #pragma warning restore CS8603 // Possível retorno de referência nula.
         }
 
         public async Task<ICollection<Product>> GetProductAsync()
         {
-            return await _db.Product.ToListAsync();
+            return await _db.Products.ToListAsync();
         }
     }
 }

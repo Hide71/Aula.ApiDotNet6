@@ -26,14 +26,14 @@ namespace Aula.ApiDotnet6.Domain.Entities
 #pragma warning restore CS8618 // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere declará-lo como anulável.
 #pragma warning restore CS8618 // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere declará-lo como anulável.
         {
-            DomainValidationException.When(id < 0, "Id da compra deve ser informado");
+            DomainValidationException.When(id <= 0, "Id da compra deve ser informado");
             Id = id;
             Validation(productId, personId);
         }
         private void Validation(int productId, int personId)
         {
-            DomainValidationException.When(productId < 0, "Id do produto deve ser informado");
-            DomainValidationException.When(personId < 0, "Id da pessoa deve ser informado");
+            DomainValidationException.When(productId <= 0, "Id do produto deve ser informado");
+            DomainValidationException.When(personId <= 0, "Id da pessoa deve ser informado");
             PersonId = personId;
             ProductId = productId;
             Date = DateTime.Now;

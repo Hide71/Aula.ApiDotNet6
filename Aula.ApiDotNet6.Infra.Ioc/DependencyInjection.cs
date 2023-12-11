@@ -18,6 +18,7 @@ namespace Aula.ApiDotNet6.Infra.Ioc
                 configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IPersonRepository, PersonRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IPurchaseRepository, PurchaseRepository>();
             return services;
         }
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
@@ -25,6 +26,7 @@ namespace Aula.ApiDotNet6.Infra.Ioc
             services.AddAutoMapper(typeof(DomainToDtoMapping));
             services.AddScoped<IPersonService, PersonService>();
             services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IPurchaseService, PurchaseService>();
             return services;
         }
 

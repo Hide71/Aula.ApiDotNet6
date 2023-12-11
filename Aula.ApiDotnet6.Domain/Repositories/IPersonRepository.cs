@@ -9,5 +9,6 @@ namespace Aula.ApiDotnet6.Domain.Repositories
         Task<Person> CreateAsync(Person person);
         Task EditAsync(Person person);
         Task DeleteAsync(Person person);
+        Task<int> GetByIdDocument(string document);
     }
 }

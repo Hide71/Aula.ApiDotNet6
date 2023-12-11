@@ -13,7 +13,7 @@ namespace Aula.ApiDotnet6.Infra.Data.Maps
             builder.Property(c => c.Id).HasColumnName("idcompra").UseIdentityColumn();
             builder.Property(c => c.PersonId).HasColumnName("idpessoa");
             builder.Property(c => c.ProductId).HasColumnName("idproduto");
-            builder.Property(c => c.Date).HasColumnName("datacompra");
+            builder.Property(c => c.Date).HasColumnType("date").HasColumnName("datacompra");
 
             builder.HasOne(c => c.Person).WithMany(c => c.Purchases);
             builder.HasOne(c => c.Product).WithMany(c => c.Purchases);

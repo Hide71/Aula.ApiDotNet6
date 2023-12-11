@@ -38,6 +38,11 @@ namespace Aula.ApiDotnet6.Infra.Data.Repositories
 #pragma warning restore CS8603 // Possível retorno de referência nula.
         }
 
+        public async Task<int> GetByIdDocument(string document)
+        {
+            return (await _db.People.FirstOrDefaultAsync(x => x.Document == document)) ?.Id ?? 0;
+        }
+
         public async Task<ICollection<Person>> GetPeopleAsync()
         {
             return await _db.People.ToListAsync();

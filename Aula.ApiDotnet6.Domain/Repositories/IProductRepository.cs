@@ -9,5 +9,6 @@ namespace Aula.ApiDotnet6.Domain.Repositories
         Task<Product> CreateProduct(Product product);
         Task EditAsync(Product product);
         Task DeleteAsync(Product product);
+        Task<int> GetByCodErpAsync(string codErp);
     }
 }
