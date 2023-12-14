@@ -53,5 +53,33 @@ namespace Aula.ApiDotNet6.Application.Services
 
             return ResultService.Ok(_mapper.Map<PurchaseDetailDTO>(purchase));
         }
+
+        public async Task<ResultService> RemoveAsync(int id)
+        {
+            var purchase = await _purchaseRepository.GetByIdAsync(id);
+            if (purchase == null)
+                return ResultService.Fail("Compra não encontrada!");
+            await _purchaseRepository.DeleteAsync(purchase);
+            return ResultService.Ok($"Compra {id} deletada!");
+        }
+
+        public async Task<ResultService<PurchaseDTO>> UpdateAsync(PurchaseDTO purchaseDTO)
+        {
+            if (purchaseDTO == null)
+                return ResultService.Fail<PurchaseDTO>("Objeto deve ser informado!");
+            var result = new PurchaseDTOValidator().Validate(purchaseDTO);
+            if (!result.IsValid)
+                return  ResultService.RequestError<PurchaseDTO>("Problemas de validação!", result);
+
+            var purchase = await _purchaseRepository.GetByIdAsync(purchaseDTO.Id);
+            if (purchase == null)
+                return ResultService.Fail<PurchaseDTO>("Compra não encontrada");
+            var productId = _productRepository.GetByCodErpAsync(purchaseDTO.CodErp);
+            var personId = _personRepository.GetByIdDocument(purchaseDTO.Document);
+            purchase.Edit (purchase.Id,  productId, personId);
+            await _purchaseRepository.EditAsync(purchase);
+            return ResultService.Ok(purchaseDTO);
+
+        }
     }
 }

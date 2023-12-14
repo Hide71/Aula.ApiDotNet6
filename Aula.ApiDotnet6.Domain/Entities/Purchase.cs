@@ -2,14 +2,14 @@
 
 namespace Aula.ApiDotnet6.Domain.Entities
 {
-    public sealed class Purchase
+    public class Purchase
     {
         public int Id { get; private set; }
         public int ProductId { get; private set; }
         public int PersonId { get; private set; }
         public DateTime Date { get; private set; }
-        public Person Person { get; private set; }
-        public Product Product { get; private set; }
+        public Person Person { get; set; }
+        public Product Product { get; set; }
 
 #pragma warning disable CS8618 // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere declará-lo como anulável.
 #pragma warning disable CS8618 // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere declará-lo como anulável.
@@ -23,6 +23,14 @@ namespace Aula.ApiDotnet6.Domain.Entities
 #pragma warning disable CS8618 // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere declará-lo como anulável.
 #pragma warning disable CS8618 // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere declará-lo como anulável.
         public Purchase(int id, int productId, int personId)
+#pragma warning restore CS8618 // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere declará-lo como anulável.
+#pragma warning restore CS8618 // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere declará-lo como anulável.
+        {
+            DomainValidationException.When(id <= 0, "Id da compra deve ser informado");
+            Id = id;
+            Validation(productId, personId);
+        }
+        public void Edit(int id, int productId, int personId)
 #pragma warning restore CS8618 // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere declará-lo como anulável.
 #pragma warning restore CS8618 // O campo não anulável precisa conter um valor não nulo ao sair do construtor. Considere declará-lo como anulável.
         {
