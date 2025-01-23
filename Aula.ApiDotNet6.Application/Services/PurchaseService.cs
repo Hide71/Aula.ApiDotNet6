@@ -5,6 +5,7 @@ using Aula.ApiDotNet6.Application.DTOs.Validations;
 using Aula.ApiDotNet6.Application.Services.Interfaces;
 using AutoMapper;
 
+
 namespace Aula.ApiDotNet6.Application.Services
 {
     public class PurchaseService : IPurchaseService
@@ -74,8 +75,8 @@ namespace Aula.ApiDotNet6.Application.Services
             var purchase = await _purchaseRepository.GetByIdAsync(purchaseDTO.Id);
             if (purchase == null)
                 return ResultService.Fail<PurchaseDTO>("Compra não encontrada");
-            var productId = _productRepository.GetByCodErpAsync(purchaseDTO.CodErp);
-            var personId = _personRepository.GetByIdDocument(purchaseDTO.Document);
+            var productId = await _productRepository.GetByCodErpAsync(purchaseDTO.CodErp);
+            var personId = await _personRepository.GetByIdDocument(purchaseDTO.Document);
             purchase.Edit (purchase.Id,  productId, personId);
             await _purchaseRepository.EditAsync(purchase);
             return ResultService.Ok(purchaseDTO);

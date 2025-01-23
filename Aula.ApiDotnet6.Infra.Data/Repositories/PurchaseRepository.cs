@@ -42,10 +42,13 @@ namespace Aula.ApiDotnet6.Infra.Data.Repositories
 
         public async Task<Purchase> GetByIdAsync(int id)
         {
-            return await _db.Purchases
+            var purshase = await _db.Purchases
                             .Include(x => x.Person)
                             .Include(x => x.Product)
                             .FirstOrDefaultAsync(x => x.Id == id);
+#pragma warning disable CS8603 // Possible null reference return.
+            return purshase;
+#pragma warning restore CS8603 // Possible null reference return.
 
         }
 

@@ -74,17 +74,19 @@ namespace Aula.ApiDotNet6.Api.Controllers
                 return BadRequest(result);
 
             }
-            [HttpDelete]
-            [Route("{id}")]
-            public async Task<ActionResult> RemoveAsync(int id)
-            {
-                var result = await _purchaseService.RemoveAsync(id);
-                if (result.IsSuccess)
-                    return Ok(result);
+           
 
-                return BadRequest(result);
+        }
+        [HttpDelete]
+        [Route("{id}")]
 
-            }
+        public async Task<ActionResult>RemoveAsync(int id)
+        {
+            var result = await _purchaseService.RemoveAsync(id);
+            if (result.IsSuccess)
+                return Ok(result);
+
+            return BadRequest(result);
 
         }
     }
